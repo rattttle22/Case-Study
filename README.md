@@ -1,17 +1,17 @@
 # Case-Study
-# 🧠 Self-Pruning Neural Network — Tredence AI Engineer Case Study
+# Self-Pruning Neural Network — Tredence AI Engineer Case Study
 
 A PyTorch implementation of a **Self-Pruning MLP** for CIFAR-10 image classification. The network learns to prune its own connections *during* training by using learnable gate parameters — no post-training pruning required.
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 Deploying large neural networks is often constrained by memory and compute budgets. This project addresses that by building a network that **learns which weights are unnecessary** and removes them automatically during training, using a custom regularization approach.
 
 ---
 
-## 💡 Core Idea
+## Core Idea
 
 Each weight in the network is paired with a learnable **gate score**. During the forward pass:
 
@@ -33,7 +33,7 @@ where `SparsityLoss` is the **L1 norm** of all gate values (sum of sigmoid-gated
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 | Component | Details |
 |---|---|
@@ -44,19 +44,6 @@ where `SparsityLoss` is the **L1 norm** of all gate values (sum of sigmoid-gated
 
 ---
 
-## 📂 Repository Structure
-
-```
-├── Tredence_Case_Study.ipynb   # Main notebook with full implementation
-├── outputs/
-│   ├── results.csv             # Accuracy & sparsity table (primary sweep)
-│   ├── results_extended.csv    # Extended λ sweep results
-│   ├── gate_distribution.png   # Gate value histogram (best model)
-│   └── gate_distribution_extended.png
-└── README.md
-```
-
----
 
 ## ⚙️ Hyperparameters
 
@@ -71,28 +58,6 @@ where `SparsityLoss` is the **L1 norm** of all gate values (sum of sigmoid-gated
 
 > **Note:** Sparsity loss is not applied for the first 2 epochs to allow the network to warm up.
 
----
-
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/rattttle22/Case-Study.git
-cd Case-Study
-```
-
-### 2. Install Dependencies
-
-```bash
-pip install torch torchvision matplotlib pandas numpy
-```
-
-### 3. Run in Google Colab
-
-Open `Tredence_Case_Study.ipynb` directly in [Google Colab](https://colab.research.google.com/) for GPU-accelerated training. The CIFAR-10 dataset will be downloaded automatically.
-
----
 
 ## 📊 Results
 
@@ -118,7 +83,7 @@ The large spike at gate values near **0** confirms the network is successfully p
 
 ---
 
-## 🔍 Key Implementation Details
+## Key Implementation Details
 
 - **Gradient flow**: Both `weight` and `gate_scores` receive gradients correctly through the element-wise multiplication.
 - **Separate learning rates**: Gate scores are updated at `lr × 5` to accelerate gate collapse.
@@ -127,7 +92,7 @@ The large spike at gate values near **0** confirms the network is successfully p
 
 ---
 
-## 📋 Evaluation Criteria
+## Evaluation Criteria
 
 1. **Correctness of PrunableLinear** — gated weight mechanism and gradient flow
 2. **Sparsity Loss Implementation** — correct L1 penalty over all gates

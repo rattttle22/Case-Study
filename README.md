@@ -45,7 +45,7 @@ where `SparsityLoss` is the **L1 norm** of all gate values (sum of sigmoid-gated
 ---
 
 
-## ⚙️ Hyperparameters
+##  Hyperparameters
 
 | Parameter | Value |
 |---|---|
@@ -59,13 +59,13 @@ where `SparsityLoss` is the **L1 norm** of all gate values (sum of sigmoid-gated
 > **Note:** Sparsity loss is not applied for the first 2 epochs to allow the network to warm up.
 
 
-## 📊 Results
+## Results
 
 The notebook trains three models with different λ values and reports:
 
-- ✅ **Test Accuracy** — classification performance after pruning
-- ✅ **Sparsity Level (%)** — percentage of gates below the pruning threshold
-- ✅ **Gate Distribution Plot** — histogram showing spike at 0 (pruned) and near 1 (active)
+-  **Test Accuracy** — classification performance after pruning
+-  **Sparsity Level (%)** — percentage of gates below the pruning threshold
+-  **Gate Distribution Plot** — histogram showing spike at 0 (pruned) and near 1 (active)
 
 A higher λ produces a sparser network, potentially at the cost of some accuracy — the classic **sparsity vs. accuracy trade-off**.
 

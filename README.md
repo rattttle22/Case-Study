@@ -69,12 +69,12 @@ The notebook trains three models with different λ values and reports:
 
 A higher λ produces a sparser network, potentially at the cost of some accuracy — the classic **sparsity vs. accuracy trade-off**.
 
-### Gate Value Distribution — Primary Sweep (Best Model)
+### Gate Value Distribution — Primary Sweep
 > λ=8e-05 | Sparsity: **97.8%** | Test Accuracy: **50.7%**
 
 ![Gate Distribution Primary](gate_distribution.png)
 
-### Gate Value Distribution — Extended Sweep (Best Model)
+### Gate Value Distribution — Extended Sweep
 > λ=0.0001 | Sparsity: **98.3%** | Test Accuracy: **50.1%**
 
 ![Gate Distribution Extended](gate_distribution_extended.png)
